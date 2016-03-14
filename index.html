@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"> 
+		
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style"content="black" />
+		
+		<title>Match Three</title>
+		<!-- CSS files -->
+		<link rel="stylesheet" href="css/matchThree.css">
+		<link rel="stylesheet" href="css/fontfaces.css" />
+		<link rel="stylesheet" href="styles/mobile.css" 
+            media="screen and (max-device-width: 480x) and (orientation: portrait),
+                   screen and (max-device-width: 480px) and (orientation: landscape)"/>
+    
+        <link rel="apple-touch-icon-precomposed" href="images/ios-icon.png">
+		<link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/touch-icon-ipad.png">
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon-iphone-retina.png">
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/touch-icon-ipad-retina.png">
+		<link rel="apple-touch-startup-image" 
+          href="images/ios-startup-320x480.png" 
+          media="screen and (min-device-width: 480px) 
+                        and (orientation:landscape)" />
+
+
+    <script src="js/matchThree.js"></script>
+	<script>
+	/*<script type="text/javascript">
+			if (window.navigator.standalone) {    
+				alert("You are running the standalone app!"); 
+			} else if (window.navigator.standalone === false) {    
+				alert("You are using app in mobile Safari!"); 
+			} else {    alert("You are using the app in another browser!"); 
+		}*/
+
+		window.addEventListener("load", function() {    
+			matchThree.load("scripts/dom.js");    
+			if (matchThree.isStandalone()) {        
+				matchThree.load("scripts/screen.splash.js");        
+				matchThree.load("scripts/screen.main-menu.js", matchThree.setup);    
+			} else {        
+				matchThree.load("scripts/screen.install.js", matchThree.setup);    
+			} 
+
+		});
+	</script>
+</head>
+<body>
+	<div id="game">
+		<div class="screen" id="screen-splash">
+			<h1 class="logo">Match <br />Three</h1>
+			<span class="continue">Click to continue</span>
+		</div>
+		<div class="screen" id="install-screen">
+			<h1 class="logo">Match <br />Three</h1>
+			<span>
+				Click the <img src="images/install-icon.png"                           
+				   			   alt="Install icon">             
+				button to install the game to your home screen. 
+			</span>
+		</div>
+		<div class="screen" id="screen-mainmenu">
+			<h2 class="logo">Match<br />Three</h2>
+			<ul class="menu">
+				<li><button name ="game-screen">Play</button></li>
+				<li><button name ="score-screen">Scores</button></li>
+				<li><button name ="about-screen">About</button></li>
+				<li><button name ="exit-screen">Quit</button></li>
+			</ul>
+		</div>
+		<div class="screen" id="screen-game"></div>
+		<div class="screen" id="screen-scores"></div>
+	</div>
+​</body>
+</html>
+​
+​
+​
+​
+​
